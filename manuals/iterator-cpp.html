@@ -22,9 +22,9 @@
         <p>Существует 5 видов:</p>
         <ol>
             <li>Input iterator (однопроходный)</li>
-            <li>Output iterator (выходой)</li>
-            <li>Forward iterator (однонапрвленный)</li>
-            <li>Bidirectional iterator (двунаправленый)</li>
+            <li>Output iterator (выходной)</li>
+            <li>Forward iterator (однонаправленный)</li>
+            <li>Bidirectional iterator (двунаправленный)</li>
             <li>Random access iterator (произвольный доступ)</li>
         </ol>
         <p>
@@ -41,7 +41,7 @@
                 <p>Внутренние типы:</p>
                 <ul>
                     <li><code>iterator_category</code> - категория, выраженная через тег</li>
-                    <li><code>difference_type</code> - обознаяает расстояние между двумя итераторами, обычно равен <code>ptrdiff_t</code></li>
+                    <li><code>difference_type</code> - обозначает расстояние между двумя итераторами, обычно равен <code>ptrdiff_t</code></li>
                     <li><code>value_type</code> - базовый тип у итератора</li>
                     <li><code>reference</code> - тип, используемый операцией разыменования, обычно равен <code>value_type&</code></li>
                     <li><code>pointer</code> - тип, используемый операцией <code>-></code>, обычно равен <code>value_type*</code></li>
@@ -80,7 +80,7 @@
         </ul>
         <p>
             Forward iterator подразумевает, что если сделать копию итератора, движение по ним обоими будет <b>одинаковым</b>.
-            <code class="block">It j = i;<br>static_assert(i == j);<br>static_assert(++i == ++j);</code>
+            <code class="block">It j = i;<br>assert((i == j));<br>assert((++i == ++j));</code>
         </p>
 
         <h2>Bidirectional iterator (<a href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">LegacyBidirectionalIterator</a>)</h2>
