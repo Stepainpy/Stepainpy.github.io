@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../resourse/ftmbr.svg">
+    <title>Свой форматер</title>
+</head>
+<body>
+    <main>
+        <h1>Создание <code>formatter</code>а для своего типа</h1>
+        <p>
+            При использовании <code>std::format</code> может потребоваться распечатать свой тип.
+            Для этого нужно сделать специализацию структуры <code>std::formatter</code>.
+        </p>
+        <code class="block"><pre><span class="kw">template</span> &lt;>
+<span class="kw">struct</span> std::formatter&lt;Type> {
+    <span class="kw">constexpr auto</span> parse(std::format_parse_context& ctx) {
+        <span class="kw">auto</span> pos = ctx.begin();
+        <span class="co">// {0:abde}     {}</span>
+        <span class="co">//    ^     или  ^</span>
+        <span class="co">//    begin      begin</span>
+        <span class="fc">while</span> (pos != ctx.end() && *pos != <span class="cl">'}'</span>) {
+            <span class="co">/* анализ выражения в скобках */</span>
+        }
+        <span class="co">// в конце итератор должен указывать на }</span>
+        <span class="fc">return</span> pos;
+    }
+    
+    <span class="kw">auto</span> format(<span class="kw">const</span> Type& obj, std::format_context& ctx) <span class="kw">const</span> {
+        <span class="fc">return</span> std::format_to(ctx.out(), <span class="co">/* форматирование данных */</span>);
+        <span class="co">/* Пример
+        return std::format_to(ctx.out(), "obj[{}] = {}", obj.index, obj.value);
+        */</span>
+    }
+};</pre></code>
+
+        <a href="index.html">Вернутся к списку</a>
+    </main>
+</body>
+</html>

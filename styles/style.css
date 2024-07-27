@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    background-color: #222;
+    color: #e0e0e0;
+    font-family: sans-serif;
+}
+
+main {
+    margin: 20px auto;
+    max-width: 675px;
+    padding: 10px 10px 0 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1, h2 {
+    margin: 0 0 20px 0;
+
+    &.center {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+li {
+    font-size: 20px;
+    margin: 0 0 1.2rem;
+}
+
+a {
+    color: #9090e0;
+    text-decoration: none;
+}
+
+p, td, table caption {
+    margin: 0 0 20px 0;
+    font-size: 19px;
+    line-height: 1.5em;
+}
+
+code {
+    background-color: #404040;
+    padding: 2px 5px;
+    border-radius: 3px;
+
+    &.block {
+        display: block;
+        padding: 0 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+
+        font-size: 19px;
+        text-align: left;
+        
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    &.block::-webkit-scrollbar {
+        background-color: #222;
+        height: 8px;
+    }
+    &.block::-webkit-scrollbar-thumb {
+        background-color: #333;
+        border-radius: 10px;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+
+    & caption {
+        margin-bottom: 10px;
+    }
+}
+
+td {
+    padding: 10px;
+    border: #404040 solid 2px;
+}
+
+span.tag {
+    color: #888;
+    font-family: Consolas;
+}
+
+span.kw { color: #325eec; }
+span.fc { color: #e944db; }
+span.co { color: #6A9955; }
+span.cl { color: #CE9178; }
