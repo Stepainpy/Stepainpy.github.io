@@ -22,33 +22,33 @@
         </ul>
         <p>
             Сигнатура функции имеет вид:<br>
-            <code><span class="tag">return-type</span> operator""_name(<span class="tag">input-type/s</span>)</code><br>
+            <code class="nonwrap"><span class="tag">return-type</span> operator""_name(<span class="tag">input-type/s</span>)</code><br>
             Имя суффикса должно начинаться с символа подчеркивания.
         </p>
 
         <h2>Числовые литералы</h2>
         <ul>
-            <li><code>operator""_name(unsigned long long)</code> - для натуральных чисел (<code>420_name</code>)</li>
-            <li><code>operator""_name(long double)</code> - для вещественных чисел (<code>420.69_name</code>)</li>
+            <li><code class="nonwrap">operator""_name(unsigned long long)</code> - для натуральных чисел (<code>420_name</code>)</li>
+            <li><code class="nonwrap">operator""_name(long double)</code> - для вещественных чисел (<code>420.69_name</code>)</li>
         </ul>
 
         <h2>Строковые литералы</h2>
         <ul>
-            <li><code>operator""_name(const char*, size_t)</code> - для <code>""</code></li>
-            <li><code>operator""_name(const wchar_t*, size_t)</code> - для <code>L""</code></li>
-            <li><code>operator""_name(const char8_t*, size_t)</code> - для <code>u8""</code></li>
-            <li><code>operator""_name(const char16_t*, size_t)</code> - для <code>u""</code></li>
-            <li><code>operator""_name(const char32_t*, size_t)</code> - для <code>U""</code></li>
+            <li><code class="nonwrap">operator""_name(const char*, size_t)</code> - для <code>""</code></li>
+            <li><code class="nonwrap">operator""_name(const wchar_t*, size_t)</code> - для <code>L""</code></li>
+            <li><code class="nonwrap">operator""_name(const char8_t*, size_t)</code> - для <code>u8""</code></li>
+            <li><code class="nonwrap">operator""_name(const char16_t*, size_t)</code> - для <code>u""</code></li>
+            <li><code class="nonwrap">operator""_name(const char32_t*, size_t)</code> - для <code>U""</code></li>
         </ul>
 
         <h2>Символьные литералы</h2>
         <p>Подобны строковым.</p>
         <ul>
-            <li><code>operator""_name(char)</code> - для <code>''</code></li>
-            <li><code>operator""_name(wchar_t)</code> - для <code>L''</code></li>
-            <li><code>operator""_name(char8_t)</code> - для <code>u8''</code></li>
-            <li><code>operator""_name(char16_t)</code> - для <code>u''</code></li>
-            <li><code>operator""_name(char32_t)</code> - для <code>U''</code></li>
+            <li><code class="nonwrap">operator""_name(char)</code> - для <code>''</code></li>
+            <li><code class="nonwrap">operator""_name(wchar_t)</code> - для <code>L''</code></li>
+            <li><code class="nonwrap">operator""_name(char8_t)</code> - для <code>u8''</code></li>
+            <li><code class="nonwrap">operator""_name(char16_t)</code> - для <code>u''</code></li>
+            <li><code class="nonwrap">operator""_name(char32_t)</code> - для <code>U''</code></li>
         </ul>
 
         <h2>Сырые литералы</h2>
@@ -56,7 +56,7 @@
             Есть особый вид литерала - сырой.
             Он позволяет разобрать указанное число посимвольно.
             Любой допустимый числовой литерал может быть передан (<code>123</code>, <code>45.6</code>, <code>0xF74bd</code> и т.п.). <br>
-            Сигнатура: <code><span class="tag">return-type</span> operator""_name(const char*)</code>
+            Сигнатура: <code class="nonwrap"><span class="tag">return-type</span> operator""_name(const char*)</code>
         </p>
         <p>
             Также возможно создать сырой литерал на основе variadic template.

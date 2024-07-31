@@ -59,6 +59,10 @@ code {
         overflow-y: hidden;
     }
 
+    &.nonwrap {
+        white-space: nowrap;
+    }
+
     &.block::-webkit-scrollbar {
         background-color: #222;
         height: 8px;

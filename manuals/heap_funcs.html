@@ -18,18 +18,18 @@
 
         <p>Доступные функции:</p>
         <ul>
-            <li><code>make_heap(first, last[, comp])</code> - преобразует последовательность в кучу (по умолчанию максимальную)</li>
-            <li><code>push_heap(first, last[, comp])</code> - перемещает последний элемент (был добавлен в конец перед вызовом) для сохранения свойства кучи</li>
-            <li><code> pop_heap(first, last[, comp])</code> - перемещает первый (максимальный или минимальный) элемент в конец последовательности, откуда его можно удалить</li>
-            <li><code>sort_heap(first, last[, comp])</code> - преобразует кучу в отсортированную последовательность. Для максимальной кучи сортирует в порядке возрастания</li>
-            <li><code>is_heap([policy, ]first, last[, comp])</code> - возвращает <code>bool</code> значение. Проверяет что последовательность это куча</li>
-            <li><code>is_heap_until([policy, ]first, last[, comp])</code> - возвращает итератор на конец последовательности, которая является кучей из полученного диапазона</li>
+            <li><code class="nonwrap">make_heap(first, last[, comp])</code> - преобразует последовательность в кучу (по умолчанию максимальную)</li>
+            <li><code class="nonwrap">push_heap(first, last[, comp])</code> - перемещает последний элемент (был добавлен в конец перед вызовом) для сохранения свойства кучи</li>
+            <li><code class="nonwrap"> pop_heap(first, last[, comp])</code> - перемещает первый (максимальный или минимальный) элемент в конец последовательности, откуда его можно удалить</li>
+            <li><code class="nonwrap">sort_heap(first, last[, comp])</code> - преобразует кучу в отсортированную последовательность. Для максимальной кучи сортирует в порядке возрастания</li>
+            <li><code class="nonwrap">is_heap([policy, ]first, last[, comp])</code> - возвращает <code>bool</code> значение. Проверяет что последовательность это куча</li>
+            <li><code class="nonwrap">is_heap_until([policy, ]first, last[, comp])</code> - возвращает итератор на конец последовательности, которая является кучей из полученного диапазона</li>
         </ul>
 
         <p>Аргументы:</p>
         <ul>
             <li><code>first</code>, <code>last</code> - итераторы на начало и конец последовательности</li>
-            <li><code>comp</code> - вызываемый объект с сигнатурой <code>bool comp(const T& a, const T& b)</code>. По умолчанию используется <code>std::less&lt;T>{}</code></li>
+            <li><code>comp</code> - вызываемый объект с сигнатурой <code class="nonwrap">bool comp(const T& a, const T& b)</code>. По умолчанию используется <code class="nonwrap">std::less&lt;T>{}</code></li>
             <li><code>policy</code> - <a href="https://en.cppreference.com/w/cpp/algorithm/execution_policy_tag_t">политика исполнения</a></li>
         </ul>
 
