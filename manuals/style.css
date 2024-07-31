@@ -1,22 +1,31 @@
 body {
+    --bottom-gap: 20px;
+    --font-size: 19px;
+    --main-backcol: #222;
+    --bright-backcol: #333;
+    --light-backcol: #404040;
+    --tag-color: #888;
+    --main-textcol: #e0e0e0;
+
     margin: 0;
-    background-color: #222;
-    color: #e0e0e0;
+    background-color: var(--main-backcol);
+    color: var(--main-textcol);
     font-family: sans-serif;
 }
 
 main {
-    margin: 20px auto;
-    max-width: 675px;
-    padding: 10px 10px 0 10px;
+    margin: 0 auto;
+    max-width: 750px;
+    padding: 15px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-h1, h2 {
-    margin: 0 0 20px 0;
+h1, h2, ul, ol, p, td {
+    margin: 0;
+    margin-bottom: var(--bottom-gap);
 
     &.center {
         display: flex;
@@ -25,8 +34,9 @@ h1, h2 {
 }
 
 li {
-    font-size: 20px;
+    font-size: var(--font-size);
     margin: 0 0 1.2rem;
+    line-height: 1.5em;
 }
 
 a {
@@ -34,9 +44,8 @@ a {
     text-decoration: none;
 }
 
-p, td, table caption {
-    margin: 0 0 20px 0;
-    font-size: 19px;
+p, td {
+    font-size: var(--font-size);
     line-height: 1.5em;
 }
 
@@ -49,9 +58,9 @@ code {
         display: block;
         padding: 0 16px;
         border-radius: 8px;
-        margin-bottom: 20px;
+        margin-bottom: var(--bottom-gap);
 
-        font-size: 19px;
+        font-size: var(--font-size);
         text-align: left;
         
         white-space: nowrap;
@@ -64,11 +73,11 @@ code {
     }
 
     &.block::-webkit-scrollbar {
-        background-color: #222;
+        background-color: var(--main-backcol);
         height: 8px;
     }
     &.block::-webkit-scrollbar-thumb {
-        background-color: #333;
+        background-color: var(--bright-backcol);
         border-radius: 10px;
     }
 }
@@ -76,20 +85,22 @@ code {
 table {
     border-collapse: collapse;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: var(--bottom-gap);
 
     & caption {
         margin-bottom: 10px;
+        font-size: var(--font-size);
+        line-height: 1.5em;
     }
 }
 
 td {
     padding: 10px;
-    border: #404040 solid 2px;
+    border: var(--light-backcol) solid 2px;
 }
 
 span.tag {
-    color: #888;
+    color: var(--tag-color);
     font-family: Consolas;
 }
 
