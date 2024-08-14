@@ -9,58 +9,68 @@
 </head>
 <body>
     <main>
-        <h1>Пользовательские литералы в C++</h1>
-        <p>
-            C++ позволяет определять свои литеральные суффиксы.
-            К сожалению, он не позволяе создавать приставки (типа <code>0x</code> или <code>u8""</code>).
-        </p>
-        <p>Можно создать суффиксы для:</p>
-        <ul>
-            <li>чисел</li>
-            <li>строк</li>
-            <li>символов</li>
-        </ul>
-        <p>
-            Сигнатура функции имеет вид:<br>
-            <code class="nonwrap"><span class="tag">return-type</span> operator""_name(<span class="tag">input-type/s</span>)</code><br>
-            Имя суффикса должно начинаться с символа подчеркивания.
-        </p>
+        <div>
+            <h1>Пользовательские литералы в C++</h1>
+            <p>
+                C++ позволяет определять свои литеральные суффиксы.
+                К сожалению, он не позволяе создавать приставки (типа <code>0x</code> или <code>u8""</code>).
+            </p>
+            <p>Можно создать суффиксы для:</p>
+            <ul>
+                <li>чисел</li>
+                <li>строк</li>
+                <li>символов</li>
+            </ul>
+            <p>
+                Сигнатура функции имеет вид:<br>
+                <code class="nonwrap"><span class="tag">return-type</span> operator""_name(<span class="tag">input-type/s</span>)</code><br>
+                Имя суффикса должно начинаться с символа подчеркивания.
+            </p>
+        </div>
 
-        <h2>Числовые литералы</h2>
-        <ul>
-            <li><code class="nonwrap">operator""_name(unsigned long long)</code> - для натуральных чисел (<code>420_name</code>)</li>
-            <li><code class="nonwrap">operator""_name(long double)</code> - для вещественных чисел (<code>420.69_name</code>)</li>
-        </ul>
+        <div>
+            <h2>Числовые литералы</h2>
+            <ul>
+                <li><code class="nonwrap">operator""_name(unsigned long long)</code> - для натуральных чисел (<code>420_name</code>)</li>
+                <li><code class="nonwrap">operator""_name(long double)</code> - для вещественных чисел (<code>420.69_name</code>)</li>
+            </ul>
+        </div>
 
-        <h2>Строковые литералы</h2>
-        <ul>
-            <li><code class="nonwrap">operator""_name(const char*, size_t)</code> - для <code>""</code></li>
-            <li><code class="nonwrap">operator""_name(const wchar_t*, size_t)</code> - для <code>L""</code></li>
-            <li><code class="nonwrap">operator""_name(const char8_t*, size_t)</code> - для <code>u8""</code></li>
-            <li><code class="nonwrap">operator""_name(const char16_t*, size_t)</code> - для <code>u""</code></li>
-            <li><code class="nonwrap">operator""_name(const char32_t*, size_t)</code> - для <code>U""</code></li>
-        </ul>
+        <div>
+            <h2>Строковые литералы</h2>
+            <ul>
+                <li><code class="nonwrap">operator""_name(const char*, size_t)</code> - для <code>""</code></li>
+                <li><code class="nonwrap">operator""_name(const wchar_t*, size_t)</code> - для <code>L""</code></li>
+                <li><code class="nonwrap">operator""_name(const char8_t*, size_t)</code> - для <code>u8""</code></li>
+                <li><code class="nonwrap">operator""_name(const char16_t*, size_t)</code> - для <code>u""</code></li>
+                <li><code class="nonwrap">operator""_name(const char32_t*, size_t)</code> - для <code>U""</code></li>
+            </ul>
+        </div>
 
-        <h2>Символьные литералы</h2>
-        <p>Подобны строковым.</p>
-        <ul>
-            <li><code class="nonwrap">operator""_name(char)</code> - для <code>''</code></li>
-            <li><code class="nonwrap">operator""_name(wchar_t)</code> - для <code>L''</code></li>
-            <li><code class="nonwrap">operator""_name(char8_t)</code> - для <code>u8''</code></li>
-            <li><code class="nonwrap">operator""_name(char16_t)</code> - для <code>u''</code></li>
-            <li><code class="nonwrap">operator""_name(char32_t)</code> - для <code>U''</code></li>
-        </ul>
+        <div>
+            <h2>Символьные литералы</h2>
+            <p>Подобны строковым.</p>
+            <ul>
+                <li><code class="nonwrap">operator""_name(char)</code> - для <code>''</code></li>
+                <li><code class="nonwrap">operator""_name(wchar_t)</code> - для <code>L''</code></li>
+                <li><code class="nonwrap">operator""_name(char8_t)</code> - для <code>u8''</code></li>
+                <li><code class="nonwrap">operator""_name(char16_t)</code> - для <code>u''</code></li>
+                <li><code class="nonwrap">operator""_name(char32_t)</code> - для <code>U''</code></li>
+            </ul>
+        </div>
 
-        <h2>Сырые литералы</h2>
-        <p>
-            Есть особый вид литерала - сырой.
-            Он позволяет разобрать указанное число посимвольно.
-            Любой допустимый числовой литерал может быть передан (<code>123</code>, <code>45.6</code>, <code>0xF74bd</code> и т.п.). <br>
-            Сигнатура: <code class="nonwrap"><span class="tag">return-type</span> operator""_name(const char*)</code>
-        </p>
-        <p>
-            Также возможно создать сырой литерал на основе variadic template.
-        </p>
+        <div>
+            <h2>Сырые литералы</h2>
+            <p>
+                Есть особый вид литерала - сырой.
+                Он позволяет разобрать указанное число посимвольно.
+                Любой допустимый числовой литерал может быть передан (<code>123</code>, <code>45.6</code>, <code>0xF74bd</code> и т.п.). <br>
+                Сигнатура: <code class="nonwrap"><span class="tag">return-type</span> operator""_name(const char*)</code>
+                или <code class="nonwrap">template &lt;char...> <span class="tag">return-type</span> operator""_name()</code>
+            </p>
+            <p>
+                Пример на основе variadic template.
+            </p>
 <code class="block"><pre><span class="fc">#include</span> <span class="cl">&lt;iostream></span>
 
 <span class="kw">namespace</span> detail {
@@ -88,6 +98,7 @@
     &lt;&lt; <span class="nl">001000101_bin</span> &lt;&lt; <span class="cl">'\n'</span>  <span class="co">// 69</span>
     &lt;&lt; <span class="nl">110100100_bin</span> &lt;&lt; <span class="cl">'\n'</span>; <span class="co">// 420</span>
 }</pre></code>
+        </div>
 
         <a href="index.html">Вернутся к списку</a>
     </main>

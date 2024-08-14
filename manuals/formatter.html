@@ -9,12 +9,13 @@
 </head>
 <body>
     <main>
-        <h1>Создание <code>formatter</code>а для своего типа</h1>
-        <p>
-            При использовании <code>std::format</code> может потребоваться распечатать свой тип.
-            Для этого нужно сделать специализацию структуры <code>std::formatter</code>.
-        </p>
-        <code class="block"><pre><span class="kw">template</span> &lt;>
+        <div>
+            <h1>Создание <code>formatter</code>а для своего типа</h1>
+            <p>
+                При использовании <code>std::format</code> может потребоваться распечатать свой тип.
+                Для этого нужно сделать специализацию структуры <code>std::formatter</code>.
+            </p>
+            <code class="block"><pre><span class="kw">template</span> &lt;>
 <span class="kw">struct</span> std::formatter&lt;Type> {
     <span class="kw">constexpr auto</span> parse(std::format_parse_context& ctx) {
         <span class="kw">auto</span> pos = ctx.begin();
@@ -35,6 +36,7 @@
         */</span>
     }
 };</pre></code>
+        </div>
 
         <a href="index.html">Вернутся к списку</a>
     </main>

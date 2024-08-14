@@ -11,102 +11,129 @@
     <main>
         <h1>Итераторы в C++</h1>
 
-        <h2>Предысловие</h2>
-        <p>
-            Итераторы в C++ являются основным методом обращения алгоритмов к структурам данных.
-            Здесь будут изложены требования к ним, взятые с <a href="https://en.cppreference.com/w/cpp/named_req/Iterator">cppreference</a>.
-            Некоторые функции могут быть помечены как <span class="tag">[необязательно]</span> имея ввиду, что эти функции могут быть определены компилятором и/или будут редко нужны.
-        </p>
+        <div>
+            <h2>Предысловие</h2>
+            <p>
+                Итераторы в C++ являются основным методом обращения алгоритмов к структурам данных.
+                Здесь будут изложены требования к ним, взятые с <a href="https://en.cppreference.com/w/cpp/named_req/Iterator">cppreference</a>.
+                Некоторые функции могут быть помечены как <span class="tag">[необязательно]</span> имея ввиду, что эти функции могут быть определены компилятором и/или будут редко нужны.
+            </p>
+        </div>
 
-        <h2>Виды итераторов</h2>
-        <p>Существует 5 видов:</p>
-        <ol>
-            <li>Input iterator (однопроходный)</li>
-            <li>Output iterator (выходной)</li>
-            <li>Forward iterator (однонаправленный)</li>
-            <li>Bidirectional iterator (двунаправленный)</li>
-            <li>Random access iterator (произвольный доступ)</li>
-        </ol>
-        <p>
-            Для каждого существует соотвествующий тег и концепт:
-            <br><code class="nonwrap">std::&lt;iter-name&gt;_iterator_tag</code>
-            <br><code class="nonwrap">std::&lt;iter-name&gt;_iterator</code>
-        </p>
+        <div>
+            <h2>Виды итераторов</h2>
+            <p>Существует 5 видов:</p>
+            <ol>
+                <li>Input iterator (однопроходный)</li>
+                <li>Output iterator (выходной)</li>
+                <li>Forward iterator (однонаправленный)</li>
+                <li>Bidirectional iterator (двунаправленный)</li>
+                <li>Random access iterator (произвольный доступ)</li>
+            </ol>
+            <p>
+                Для каждого существует соотвествующий тег и концепт:
+                <br><code class="nonwrap">std::&lt;iter-name&gt;_iterator_tag</code>
+                <br><code class="nonwrap">std::&lt;iter-name&gt;_iterator</code>
+            </p>
+        </div>
         
-        <h2>Базовый итератор (<a href="https://en.cppreference.com/w/cpp/named_req/Iterator">LegacyIterator</a>)</h2>
-        <p><code>It</code> - класс/структура, определяющая итератор</p>
-        <p>Требования:</p>
-        <ul>
-            <li>
-                <p>Внутренние типы:</p>
-                <ul>
-                    <li><code class="nonwrap">iterator_category</code> - категория, выраженная через тег</li>
-                    <li><code class="nonwrap">difference_type</code> - обозначает расстояние между двумя итераторами, обычно равен <code>ptrdiff_t</code></li>
-                    <li><code class="nonwrap">value_type</code> - базовый тип у итератора</li>
-                    <li><code class="nonwrap">reference</code> - тип, используемый операцией разыменования, обычно равен <code>value_type&</code></li>
-                    <li><code class="nonwrap">pointer</code> - тип, используемый операцией <code>-></code>, обычно равен <code>value_type*</code></li>
-                </ul>
-            </li>
-            <li><code class="nonwrap">reference operator*() const</code></li>
-            <li><code class="nonwrap">It& operator++()</code></li>
-            <li><code class="nonwrap">It operator++(int)</code></li>
-            <li><code class="nonwrap">It(const It&)</code> <span class="tag">[необязательно]</span></li>
-            <li><code class="nonwrap">It& operator=(const It&)</code> <span class="tag">[необязательно]</span></li>
-            <li><code class="nonwrap">~It()</code> <span class="tag">[необязательно]</span></li>
-            <li><code class="nonwrap">void swap(It&, It&) noexcept</code> <span class="tag">[необязательно]</span> - внешняя функция</li>
-        </ul>
+        <div>
+            <h2>Базовый итератор (<a href="https://en.cppreference.com/w/cpp/named_req/Iterator">LegacyIterator</a>)</h2>
+            <p><code>It</code> - класс/структура, определяющая итератор</p>
+            <p>Требования:</p>
+            <ul>
+                <li> Внутренние типы:
+                    <ul>
+                        <li><code class="nonwrap">iterator_category</code> - категория, выраженная через тег</li>
+                        <li><code class="nonwrap">difference_type</code> - обозначает расстояние между двумя итераторами, обычно равен <code>ptrdiff_t</code></li>
+                        <li><code class="nonwrap">value_type</code> - базовый тип у итератора</li>
+                        <li><code class="nonwrap">reference</code> - тип, используемый операцией разыменования, обычно равен <code>value_type&</code></li>
+                        <li><code class="nonwrap">pointer</code> - тип, используемый оператором <code>-></code>, обычно равен <code>value_type*</code></li>
+                    </ul>
+                </li>
+                <li><code class="nonwrap">reference operator*() const</code></li>
+                <li><code class="nonwrap">It& operator++()</code></li>
+                <li><code class="nonwrap">It operator++(int)</code></li>
+                <li><code class="nonwrap">It(const It&)</code> <span class="tag">[необязательно]</span></li>
+                <li><code class="nonwrap">It& operator=(const It&)</code> <span class="tag">[необязательно]</span></li>
+                <li><code class="nonwrap">~It()</code> <span class="tag">[необязательно]</span></li>
+                <li><code class="nonwrap">void swap(It&, It&) noexcept</code> <span class="tag">[необязательно]</span> - внешняя функция</li>
+            </ul>
+        </div>
 
-        <h2>Input iterator (<a href="https://en.cppreference.com/w/cpp/named_req/InputIterator">LegacyInputIterator</a>)</h2>
-        <p>Требования:</p>
-        <ul>
-            <li>Такие же как и для Базовый итератор</li>
-            <li><code class="nonwrap">bool operator==() const</code></li>
-            <li><code class="nonwrap">bool operator!=() const</code></li>
-            <li><code class="nonwrap">pointer operator->()</code> <span class="tag">[необязательно]</span></li>
-        </ul>
+        <div>
+            <h2>Input iterator (<a href="https://en.cppreference.com/w/cpp/named_req/InputIterator">LegacyInputIterator</a>)</h2>
+            <p>Требования:</p>
+            <ul>
+                <li>Такие же как и для Базовый итератор</li>
+                <li><code class="nonwrap">bool operator==() const</code></li>
+                <li><code class="nonwrap">bool operator!=() const</code></li>
+                <li><code class="nonwrap">pointer operator->()</code> <span class="tag">[необязательно]</span></li>
+            </ul>
+        </div>
         
-        <h2>Output iterator (<a href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">LegacyOutputIterator</a>)</h2>
-        <p>Требования:</p>
-        <ul>
-            <li>Такие же как и для Базовый итератор</li>
-            <li><code class="nonwrap">It& operator=(const T&)</code></li>
-        </ul>
+        <div>
+            <h2>Output iterator (<a href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">LegacyOutputIterator</a>)</h2>
+            <p>Требования:</p>
+            <ul>
+                <li>Такие же как и для Базовый итератор</li>
+                <li><code class="nonwrap">It& operator=(const T&)</code></li>
+            </ul>
+            <div class="note">
+                <p> <b>Примечание:</b>
+                    Обычно используется если нельзя просто "записать по адресу".
+                    В алгоритмах STL часто используется конструкция <code>*it++ = ...</code>,
+                    следовательно можно передавать и "обычные" итераторы, как, к примеру, у <code><a href="https://en.cppreference.com/w/cpp/algorithm/copy_backward">std::copy_backward</a></code>.
+                    К примеру, для <code>std::copy_n</code> можно передать указатели <code>src</code>, <code>dst</code> и количество <code>count</code>.
+                    Так получится конструкция <code>std::copy_n(src, count, dst)</code> схожая с C-стилем, но если мы хотим скопировать диапазон в консоль, то потребуется отдельный вид итератора.
+                    Обычно итераторы подобные <code>std::ostream_iterator</code> для операций инкремента и разыменования возвращают себя же и ничего более.
+                </p>
+            </div>
+        </div>
 
-        <h2>Forward iterator (<a href="https://en.cppreference.com/w/cpp/named_req/ForwardIterator">LegacyForwardIterator</a>)</h2>
-        <p>Требования:</p>
-        <ul>
-            <li>Такие же как и для Input/Output iterator</li>
-            <li><code class="nonwrap">It()</code></li>
-        </ul>
-        <p>
-            Forward iterator подразумевает, что если сделать копию итератора, движение по ним обоими будет <b>одинаковым</b>.
-            <code class="block">It j = i;<br>assert((i == j));<br>assert((++i == ++j));</code>
-        </p>
+        <div>
+            <h2>Forward iterator (<a href="https://en.cppreference.com/w/cpp/named_req/ForwardIterator">LegacyForwardIterator</a>)</h2>
+            <p>Требования:</p>
+            <ul>
+                <li>Такие же как и для Input/Output iterator</li>
+                <li><code class="nonwrap">It()</code></li>
+            </ul>
+            <div class="note">
+                <p> <b>Примечание:</b>
+                    Forward iterator подразумевает, что если сделать копию итератора, то движение по ним обоими будет <b>одинаковым</b>.
+                    <code class="block">It j = i;<br>assert((i == j));<br>assert((++i == ++j));</code>
+                </p>
+            </div>
+        </div>
 
-        <h2>Bidirectional iterator (<a href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">LegacyBidirectionalIterator</a>)</h2>
-        <p>Требования:</p>
-        <ul>
-            <li>Такие же как и для Forward iterator</li>
-            <li><code class="nonwrap">It& operator--()</code></li>
-            <li><code class="nonwrap">It operator--(int)</code></li>
-        </ul>
+        <div>
+            <h2>Bidirectional iterator (<a href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">LegacyBidirectionalIterator</a>)</h2>
+            <p>Требования:</p>
+            <ul>
+                <li>Такие же как и для Forward iterator</li>
+                <li><code class="nonwrap">It& operator--()</code></li>
+                <li><code class="nonwrap">It operator--(int)</code></li>
+            </ul>
+        </div>
 
-        <h2>Random access iterator (<a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">LegacyRandomAccessIterator</a>)</h2>
-        <p>Требования:</p>
-        <ul>
-            <li>Такие же как и для Bidirectional iterator</li>
-            <li><code class="nonwrap">It& operator+=(difference_type)</code></li>
-            <li><code class="nonwrap">It& operator-=(difference_type)</code></li>
-            <li><code class="nonwrap">It operator+(const It&, difference_type) const</code></li>
-            <li><code class="nonwrap">It operator+(difference_type, const It&) const</code></li>
-            <li><code class="nonwrap">It operator-(const It&, difference_type) const</code></li>
-            <li><code class="nonwrap">difference_type operator-(const It&, const It&) const</code></li>
-            <li><code class="nonwrap">reference operator[](difference_type)</code></li>
-            <li><code class="nonwrap">bool operator&lt;(const It&, const It&) const</code></li>
-            <li><code class="nonwrap">bool operator&gt;(const It&, const It&) const</code></li>
-            <li><code class="nonwrap">bool operator&lt;=(const It&, const It&) const</code></li>
-            <li><code class="nonwrap">bool operator&gt;=(const It&, const It&) const</code></li>
-        </ul>
+        <div>
+            <h2>Random access iterator (<a href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">LegacyRandomAccessIterator</a>)</h2>
+            <p>Требования:</p>
+            <ul>
+                <li>Такие же как и для Bidirectional iterator</li>
+                <li><code class="nonwrap">It& operator+=(difference_type)</code></li>
+                <li><code class="nonwrap">It& operator-=(difference_type)</code></li>
+                <li><code class="nonwrap">It operator+(const It&, difference_type) const</code></li>
+                <li><code class="nonwrap">It operator+(difference_type, const It&) const</code></li>
+                <li><code class="nonwrap">It operator-(const It&, difference_type) const</code></li>
+                <li><code class="nonwrap">difference_type operator-(const It&, const It&) const</code></li>
+                <li><code class="nonwrap">reference operator[](difference_type)</code></li>
+                <li><code class="nonwrap">bool operator&lt;(const It&, const It&) const</code></li>
+                <li><code class="nonwrap">bool operator&gt;(const It&, const It&) const</code></li>
+                <li><code class="nonwrap">bool operator&lt;=(const It&, const It&) const</code></li>
+                <li><code class="nonwrap">bool operator&gt;=(const It&, const It&) const</code></li>
+            </ul>
+        </div>
 
         <a href="index.html">Вернутся к списку</a>
     </main>
